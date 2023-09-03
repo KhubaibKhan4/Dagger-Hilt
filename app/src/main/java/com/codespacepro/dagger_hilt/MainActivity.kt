@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.codespacepro.dagger_hilt.demo.Car
+import com.codespacepro.dagger_hilt.demo.MainQualifier
 import com.codespacepro.dagger_hilt.demo.One
+import com.codespacepro.dagger_hilt.demo.QualifierDemo
 import com.codespacepro.dagger_hilt.demo.Two
 import com.codespacepro.dagger_hilt.ui.theme.DaggerHiltTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,13 +31,20 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var two: Two
 
+    @Inject
+    lateinit var mainQualifier: MainQualifier
+
+    @Inject
+    lateinit var qualifierDemo: QualifierDemo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
 
             one.getName()
             two.getName()
-
+            mainQualifier.getName()
+            qualifierDemo.getName()
 
             DaggerHiltTheme {
                 Surface(
